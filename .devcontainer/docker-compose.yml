@@ -1,0 +1,11 @@
+volumes:
+  node_modules:
+
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
+    volumes:
+      - ..:/workspaces/aeris-vscode:cached
+      - node_modules:/workspaces/aeris-vscode/node_modules:cached
+    command: sleep infinity

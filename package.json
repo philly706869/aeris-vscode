@@ -1,0 +1,75 @@
+{
+  "name": "aeris",
+  "displayName": "AERIS",
+  "description": "AERIS Language Support",
+  "version": "0.0.0",
+  "publisher": "aeris-lang",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "icon": "assets/icon.png",
+  "repository": "https://github.com/aeris-lang/aeris-vscode",
+  "homepage": "https://aeris-lang.org",
+  "categories": [
+    "Programming Languages"
+  ],
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "main": "./dist/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {},
+  "activationEvents": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "aeris",
+        "aliases": [
+          "AERIS"
+        ],
+        "extensions": [
+          ".as"
+        ],
+        "icon": {
+          "dark": "assets/lettermark-light52.png",
+          "light": "assets/lettermark-dark52.png"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22",
+    "@types/vscode": "^1.104.0",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.6.0",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.35.0",
+    "jiti": "^2.5.1",
+    "npm-run-all": "^4.1.5",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
