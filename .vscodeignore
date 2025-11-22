@@ -4,7 +4,6 @@
 assets/**
 out/**
 node_modules/**
-sample/**
 src/**
 .gitignore
 esbuild.js

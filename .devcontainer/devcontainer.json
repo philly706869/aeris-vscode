@@ -1,8 +1,6 @@
 {
   "name": "AERIS VSCode",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "workspaceFolder": "/workspaces/aeris-vscode",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24-trixie",
   "customizations": {
     "vscode": {
       "extensions": [

@@ -1,16 +1,10 @@
-import * as vscode from "vscode";
-import { AERISSemanticProvider } from "./AERISSemanticProvider.js";
+import { AERISSemanticTokensProvider } from "@src/provider";
+import { ExtensionContext } from "vscode";
 
-export function activate(context: vscode.ExtensionContext) {
-  const legend = new vscode.SemanticTokensLegend([], []);
-
-  context.subscriptions.push(
-    vscode.languages.registerDocumentSemanticTokensProvider(
-      { language: "aeris" },
-      new AERISSemanticProvider(),
-      legend
-    )
-  );
+export function activate(context: ExtensionContext) {
+  const provider = new AERISSemanticTokensProvider();
+  const disposable = provider.register();
+  context.subscriptions.push(disposable);
 }
 
 export function deactivate() {}

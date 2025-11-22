@@ -14,14 +14,16 @@
     "Programming Languages"
   ],
   "engines": {
-    "vscode": "^1.104.0"
+    "vscode": "^1.106.2"
   },
   "main": "./dist/extension.js",
   "extensionKind": [
     "workspace"
   ],
   "capabilities": {},
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:aeris"
+  ],
   "contributes": {
     "languages": [
       {
@@ -30,46 +32,48 @@
           "AERIS"
         ],
         "extensions": [
-          ".as"
+          ".aeris"
         ],
         "icon": {
-          "dark": "assets/lettermark-light52.png",
-          "light": "assets/lettermark-dark52.png"
+          "dark": "assets/lettermark-light;52;64.png",
+          "light": "assets/lettermark-dark;52;64.png"
         }
       }
     ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
-    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "compile": "npm run check && npm run lint && tsx esbuild.js",
     "watch": "npm-run-all -p watch:*",
-    "watch:esbuild": "node esbuild.js --watch",
+    "watch:esbuild": "tsx esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "package": "npm run check && npm run lint && tsx esbuild.js --production",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
-    "check-types": "tsc --noEmit",
-    "lint": "eslint src",
+    "check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
     "test": "vscode-test"
   },
   "dependencies": {
-    "tslib": "^2.8.1"
+    "tslib": "^2.8"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22",
-    "@types/vscode": "^1.104.0",
-    "@typescript-eslint/eslint-plugin": "^8.44.0",
-    "@typescript-eslint/parser": "^8.44.0",
-    "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2",
-    "@vscode/vsce": "^3.6.0",
-    "esbuild": "^0.25.10",
-    "eslint": "^9.35.0",
-    "jiti": "^2.5.1",
-    "npm-run-all": "^4.1.5",
-    "tsx": "^4.20.5",
-    "typescript": "^5.9.2"
+    "@types/mocha": "^10.0",
+    "@types/node": "^24",
+    "@types/vscode": "^1.106",
+    "@typescript-eslint/eslint-plugin": "^8.47",
+    "@typescript-eslint/parser": "^8.47",
+    "@vscode/test-cli": "^0.0",
+    "@vscode/test-electron": "^2.5",
+    "@vscode/vsce": "^3.7",
+    "esbuild": "^0.27",
+    "eslint": "^9.39",
+    "jiti": "^2.6",
+    "npm-run-all": "^4.1",
+    "prettier": "^3.6",
+    "tsx": "^4.20",
+    "typescript": "^5.9"
   }
 }
