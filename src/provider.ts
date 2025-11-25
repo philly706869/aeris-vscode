@@ -28,8 +28,8 @@ class AERISSemanticTokensProvider {
   private readonly provider: Provider;
 
   public constructor() {
-    this.selector = { language: "aeris" };
-    const tokenTypes: string[] = [];
+    this.selector = { language: "aeris", scheme: "file" };
+    const tokenTypes: string[] = ["type"];
     const tokenModifiers: string[] = [];
     this.legend = new SemanticTokensLegend(tokenTypes, tokenModifiers);
     this.provider = new Provider(this.legend);

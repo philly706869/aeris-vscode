@@ -1,15 +1,19 @@
 {
   "name": "aeris",
+  "private": true,
+  "type": "module",
   "displayName": "AERIS",
   "description": "AERIS Language Support",
   "version": "0.0.0",
   "publisher": "aeris-lang",
   "license": "MIT",
-  "private": true,
-  "type": "module",
   "icon": "assets/icon.png",
-  "repository": "https://github.com/aeris-lang/aeris-vscode",
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
   "homepage": "https://aeris-lang.org",
+  "repository": "https://github.com/aeris-lang/aeris-vscode",
   "categories": [
     "Programming Languages"
   ],
@@ -63,8 +67,6 @@
     "@types/mocha": "^10.0",
     "@types/node": "^24",
     "@types/vscode": "^1.106",
-    "@typescript-eslint/eslint-plugin": "^8.47",
-    "@typescript-eslint/parser": "^8.47",
     "@vscode/test-cli": "^0.0",
     "@vscode/test-electron": "^2.5",
     "@vscode/vsce": "^3.7",
@@ -74,6 +76,7 @@
     "npm-run-all": "^4.1",
     "prettier": "^3.6",
     "tsx": "^4.20",
-    "typescript": "^5.9"
+    "typescript": "^5.9",
+    "typescript-eslint": "^8.48"
   }
 }
