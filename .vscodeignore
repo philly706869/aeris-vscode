@@ -5,9 +5,10 @@ assets/**
 out/**
 node_modules/**
 src/**
+.gitattributes
 .gitignore
 esbuild.js
-eslint.config.ts
+eslint.config.js
 package-lock.json
 tsconfig.json
 **/*.map

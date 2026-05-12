@@ -1,1 +1,0 @@
-# AERIS VSCode Extension

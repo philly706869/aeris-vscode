@@ -1,42 +1,38 @@
 {
-  "name": "aeris",
-  "private": true,
-  "type": "module",
-  "displayName": "AERIS",
-  "description": "AERIS Language Support",
+  "name": "aeris-vscode",
   "version": "0.0.0",
   "publisher": "aeris-lang",
-  "license": "MIT",
+  "displayName": "AERIS",
+  "description": "AERIS Language Support",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://aeris-lang.org",
+  "repository": "https://github.com/aeris-lang/aeris-vscode",
   "icon": "assets/icon.png",
   "galleryBanner": {
     "color": "#000000",
     "theme": "dark"
   },
-  "homepage": "https://aeris-lang.org",
-  "repository": "https://github.com/aeris-lang/aeris-vscode",
   "categories": [
     "Programming Languages"
   ],
-  "engines": {
-    "vscode": "^1.106.2"
-  },
+  "keywords": [],
+  "type": "module",
   "main": "./dist/extension.js",
+  "engines": {
+    "vscode": "^1.118.0"
+  },
+  "activationEvents": [],
   "extensionKind": [
     "workspace"
   ],
   "capabilities": {},
-  "activationEvents": [
-    "onLanguage:aeris"
-  ],
   "contributes": {
     "languages": [
       {
         "id": "aeris",
         "aliases": [
           "AERIS"
-        ],
-        "extensions": [
-          ".aeris"
         ],
         "icon": {
           "dark": "assets/lettermark-light;52;64.png",
@@ -47,36 +43,34 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
-    "compile": "npm run check && npm run lint && tsx esbuild.js",
+    "compile": "npm run check && npm run lint && node esbuild.js",
     "watch": "npm-run-all -p watch:*",
-    "watch:esbuild": "tsx esbuild.js --watch",
+    "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "npm run check && npm run lint && tsx esbuild.js --production",
+    "package": "npm run check && npm run lint && node esbuild.js --production",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "check": "tsc --noEmit",
-    "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
     "test": "vscode-test"
   },
-  "dependencies": {
-    "tslib": "^2.8"
-  },
   "devDependencies": {
-    "@types/mocha": "^10.0",
+    "@eslint/config-helpers": "^0.6",
+    "@eslint/js": "^10",
     "@types/node": "^24",
-    "@types/vscode": "^1.106",
-    "@vscode/test-cli": "^0.0",
-    "@vscode/test-electron": "^2.5",
-    "@vscode/vsce": "^3.7",
-    "esbuild": "^0.27",
-    "eslint": "^9.39",
-    "jiti": "^2.6",
-    "npm-run-all": "^4.1",
-    "prettier": "^3.6",
-    "tsx": "^4.20",
-    "typescript": "^5.9",
-    "typescript-eslint": "^8.48"
+    "@types/vscode": "^1.118.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2",
+    "@vscode/vsce": "^3",
+    "esbuild": "^0.28",
+    "eslint": "^10",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17",
+    "npm-run-all": "^4",
+    "prettier": "^3",
+    "typescript": "^6",
+    "typescript-eslint": "^8"
   }
 }
