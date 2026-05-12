@@ -8,19 +8,21 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "strict": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "sourceMap": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "lib": ["ES2022"],
+    "lib": [
+      "ES2022"
+    ],
     "moduleDetection": "force",
     "target": "ES2022",
     "skipLibCheck": true
