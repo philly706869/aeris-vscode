@@ -20,7 +20,7 @@
   "type": "module",
   "main": "./dist/extension.js",
   "engines": {
-    "vscode": "^1.118.0"
+    "vscode": "^1.120.0"
   },
   "activationEvents": [],
   "extensionKind": [
@@ -57,16 +57,15 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@eslint/config-helpers": "^0.6",
     "@eslint/js": "^10",
     "@types/node": "^24",
-    "@types/vscode": "^1.118.0",
+    "@types/vscode": "^1.120.0",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2",
     "@vscode/vsce": "^3",
     "esbuild": "^0.28",
     "eslint": "^10",
-    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-prettier": "^10",
     "globals": "^17",
     "npm-run-all": "^4",
     "prettier": "^3",
