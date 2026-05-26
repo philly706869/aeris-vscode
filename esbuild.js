@@ -8,7 +8,7 @@ const ctx = await context({
   bundle: true,
   format: "cjs",
   platform: "node",
-  outfile: "dist/extension.js",
+  outfile: "dist/extension.cjs",
   external: ["vscode"],
   logLevel: "silent",
   minify: production,
