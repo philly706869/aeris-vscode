@@ -26,7 +26,7 @@
     "onStartupFinished"
   ],
   "extensionKind": [
-    "workspace"
+    "ui"
   ],
   "capabilities": {},
   "contributes": {
@@ -40,6 +40,12 @@
           "dark": "assets/lettermark-light;52;64.png",
           "light": "assets/lettermark-dark;52;64.png"
         }
+      }
+    ],
+    "commands": [
+      {
+        "command": "aeris-vscode.status",
+        "title": "AERIS: Check Status"
       }
     ]
   },
