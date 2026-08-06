@@ -20,12 +20,13 @@
   "type": "module",
   "main": "./dist/extension.cjs",
   "engines": {
-    "vscode": "^1.120.0"
+    "vscode": "^1.125.0"
   },
   "activationEvents": [
     "onStartupFinished"
   ],
   "extensionKind": [
+    "workspace",
     "ui"
   ],
   "capabilities": {},
@@ -67,9 +68,9 @@
   "devDependencies": {
     "@eslint/js": "^10",
     "@types/node": "^24",
-    "@types/vscode": "^1.120.0",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2",
+    "@types/vscode": "^1.125.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3",
     "@vscode/vsce": "^3",
     "esbuild": "^0.28",
     "eslint": "^10",

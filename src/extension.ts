@@ -6,6 +6,7 @@ import type {
 import {
   commands,
   languages,
+  SemanticTokensBuilder,
   SemanticTokensLegend,
   StatusBarAlignment,
   window,
@@ -40,7 +41,9 @@ export const activate = async (context: ExtensionContext) => {
         const document = await workspace.openTextDocument(root);
         await languages.setTextDocumentLanguage(document, "aeris");
         detectedCount += 1;
-      } catch {}
+      } catch {
+        //
+      }
     }
 
     if (detectedCount > 0) {
@@ -59,7 +62,15 @@ export const activate = async (context: ExtensionContext) => {
   const legend = new SemanticTokensLegend(tokenTypes, tokenModifiers);
 
   const provider: DocumentSemanticTokensProvider = {
-    provideDocumentSemanticTokens(document, token) {},
+    provideDocumentSemanticTokens(document, token) {
+      const builder = new SemanticTokensBuilder();
+      for (let i = 0; i < document.lineCount; i += 1) {
+        if (token.isCancellationRequested) return;
+        const line = document.lineAt(i);
+        builder.push(i, 0, line.text.length, 0);
+      }
+      return builder.build();
+    },
   };
 
   const selector: DocumentSelector = { language: "aeris", scheme: "file" };
